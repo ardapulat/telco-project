@@ -1,126 +1,59 @@
 # Telecom Database Project
 
 ## Introduction
+This project focuses on building a telecom database using Oracle XE. The goal was to analyze customer data, tariff usage, and payment behavior using SQL queries.
 
-This project focuses on building a telecom database using Oracle XE.  
-The system was designed to analyze customer data, tariff usage, and payment behavior using SQL queries.
-
-The database environment was deployed using Docker, and DBeaver was used as the database client for managing and querying data.
-
----
+## Environment
+The database environment was set up using Docker, and DBeaver was used as the database client for managing and querying data.
 
 ## Project Structure
-
-- TABLE_CREATION_SCRIPTS.sql → creates database tables  
-- SOLUTIONS.sql → contains all SQL queries  
-- New_user.sql → creates database user  
-- docker-compose.yml → runs Oracle XE container  
-
----
+- TABLE_CREATION_SCRIPTS.sql → database tables creation  
+- SOLUTIONS.sql → SQL queries  
+- New_user.sql → new database user creation  
+- docker-compose.yml → Oracle XE container setup  
 
 ## Technologies
-
 - Oracle XE → relational database  
 - Docker & Docker Compose → environment setup  
 - SQL → data querying and analysis  
 - DBeaver → database management tool  
 
----
-
 ## Database Design
-
-The database consists of three main tables:
-
-- TARIFFS → stores tariff details  
-- CUSTOMERS → stores customer information  
-- MONTHLY_STATS → stores monthly usage and payment data  
-
-Tables were created in a logical order:
-
-1. TARIFFS  
-2. CUSTOMERS (linked to TARIFFS via foreign key)  
-3. MONTHLY_STATS (linked to CUSTOMERS via foreign key)  
-
-This structure ensures proper relationships and data consistency.
-
----
+The database consists of three main tables: TARIFFS (tariff data), CUSTOMERS (customer data), and MONTHLY_STATS (monthly usage and payment statistics). Tables were created in a logical order: first TARIFFS, then CUSTOMERS with a foreign key referencing TARIFFS, and finally MONTHLY_STATS with a foreign key referencing CUSTOMERS. This structure ensures correct relationships and data consistency.
 
 ## Data Import
-
-Data was imported from CSV files using DBeaver.  
-During this process, special attention was given to data types, date formats, and handling missing values to ensure consistency.
-
----
+Data was imported using DBeaver. During this process, special attention was given to data types, date formats, and handling null values.
 
 ## SQL Queries
-
-This project includes multiple SQL queries for analyzing the dataset:
-
-- Filtering customers based on tariffs  
-- Finding newest and oldest customers  
-- Analyzing tariff distribution using GROUP BY  
-- Detecting missing records  
-- Comparing usage with tariff limits  
-- Identifying high usage customers  
-- Analyzing unpaid and late payments  
-
-Various SQL techniques were used, including JOIN, GROUP BY, ORDER BY, subqueries, and conditional logic.
-
----
+This project includes multiple SQL queries for data analysis such as filtering customers by tariffs, finding newest and oldest customers, analyzing tariff distribution using GROUP BY, detecting missing records, comparing usage with tariff limits, identifying high-usage customers, and analyzing unpaid or delayed payments. Various SQL techniques were used including JOIN, GROUP BY, ORDER BY, subqueries, and conditional expressions.
 
 ## How to Run
+Start the database:
+docker compose up -d
 
-1. Start the database:
--docker compose up -d
-3. Connect via DBeaver:
-- Host: localhost  
-- Port: 1521  
-- Username: system  
-- Password: your password  
+Connect via DBeaver:
+Host: localhost  
+Port: 1521  
+Username: system  
+Password: your password  
 
-3. Run:
-- New_user.sql  
-- TABLE_CREATION_SCRIPTS.sql  
-- Import CSV files  
-- SOLUTIONS.sql  
-
----
+Steps:
+1. Run New_user.sql  
+2. Run TABLE_CREATION_SCRIPTS.sql  
+3. Import CSV files  
+4. Run SOLUTIONS.sql  
 
 ## Why I Built This
-
-This project was built to understand how telecom companies manage customer data, tariffs, and usage statistics.  
-It also helped me gain hands-on experience in database design and SQL-based data analysis.
-
----
+This project was built to understand how telecom companies manage customer data, tariffs, and usage statistics. It also helped me gain hands-on experience in database design and SQL-based data analysis.
 
 ## What I Learned
-
-- Designing relational databases using primary and foreign keys  
-- Writing efficient SQL queries using JOIN, GROUP BY, and subqueries  
-- Understanding data relationships and consistency  
-- Using Docker to deploy and manage a database environment  
-- Working with real-world data and handling import issues  
-
----
+I learned how to design relational databases using primary and foreign keys, write efficient SQL queries with JOIN, GROUP BY, and subqueries, understand data relationships and consistency, use Docker to deploy and manage a database environment, and import and handle real-world data from CSV files.
 
 ## Challenges
-
-- Handling data import issues such as incorrect date formats and missing values  
-- Designing correct table relationships  
-- Debugging SQL errors and improving query logic  
-- Writing queries that reflect real-world scenarios  
-
----
+During the project, I faced challenges such as handling incorrect date formats and missing values during data import, designing correct relationships between tables, debugging SQL errors, and improving query logic to match real-world scenarios.
 
 ## Future Improvements
-
-- Adding more advanced queries for deeper analysis  
-- Creating a simple frontend interface  
-- Expanding the dataset for more realistic results  
-
----
+In the future, I plan to add more advanced queries for deeper data analysis, create a simple frontend interface, and expand the dataset for more realistic scenarios.
 
 ## Conclusion
-
-This project provided practical experience in database design and SQL.  
-It helped me understand how data can be structured, analyzed, and used in real-world systems.
+This project provided practical experience in database design and SQL. It helped me understand how data can be structured, analyzed, and used in real-world systems.
