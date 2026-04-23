@@ -1,0 +1,22 @@
+# oracle service
+# This service runs Oracle XE container.
+# I used image and set basic configs here.
+# Ports and environment variables are defined for connection.
+services:
+  i2i-oracle:
+    image: gvenzl/oracle-xe
+    container_name: i2i_oracle_server
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=admin123   # system key
+      - APP_USER=I2I_USER          # app username
+      - APP_USER_PASSWORD=i2i_pass # app key
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+# volume
+# This part creates volume for database data.
+# I used volume to keep data persistent.
+# Data will not be lost when container restarts.
+volumes:
+  oracle_data:
